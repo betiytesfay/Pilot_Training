@@ -1,0 +1,25 @@
+{
+  "name": "et-bot",
+  "version": "1.0.0",
+  "description": "Telegram FAQ Bot with fallback forwarding to admin",
+  "main": "src/bot.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node src/bot.js",
+    "dev": "node --watch src/bot.js"
+  },
+  "keywords": [
+    "telegram",
+    "bot",
+    "faq",
+    "support",
+    "forwarding"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "fuse.js": "^7.0.0",
+    "telegraf": "^4.16.3"
+  }
+}
