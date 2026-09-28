@@ -1,0 +1,58 @@
+[
+  {
+    "id": "cpl_investment",
+    "title": "Commercial Pilot License Cost",
+    "question": "What is the realistic, all-inclusive investment for a Commercial Pilot License?",
+    "keywords": ["cost", "investment", "price", "license", "cpl", "tuition", "budget", "fees", "commercial"],
+    "answer": "While training quotes typically state base tuition ($35,000 - $65,000 depending on the program), true all-in budgets must account for Class 1 medical renewals, aviation uniform/equipment, ECAA/ICAO exam fees, accommodation, living stipends, and buffer flight hours. We build a clear 18-month cashflow forecast tailored to your family's budget."
+  },
+  {
+    "id": "accreditation",
+    "title": "International Accreditation",
+    "question": "Are flight training academies internationally accredited?",
+    "keywords": ["accredited", "accreditation", "faa", "easa", "caa", "icao", "international", "academy"],
+    "answer": "Yes. Accredited flight training academies operate as ICAO Training Centers and ATOs authorized under CAA, FAA, and EASA guidelines, training commercial pilots for international carriers."
+  },
+  {
+    "id": "job_prospects",
+    "title": "Job Placement Prospects",
+    "question": "What are the job placement prospects post-graduation?",
+    "keywords": ["job", "career", "placement", "prospects", "hiring", "demand", "airline", "work"],
+    "answer": "The global aviation industry faces a forecasted shortage of 600,000+ pilots and technicians over the next 20 years. Graduates with ICAO-standard pilot certifications transition into regional and international airlines."
+  },
+  {
+    "id": "student_safety",
+    "title": "Student Safety & Welfare",
+    "question": "How is student safety and welfare monitored abroad?",
+    "keywords": ["safety", "welfare", "campus", "dormitory", "dorms", "health", "security", "abroad"],
+    "answer": "Partner flight academy campuses operate secured gated grounds with full-board student catering, health facilities, dormitories, and international student welfare support."
+  },
+  {
+    "id": "academic_requirements",
+    "title": "Academic Requirements",
+    "question": "What are the academic requirements for Cadet Pilot Training?",
+    "keywords": ["academic", "requirements", "grades", "high school", "math", "physics", "english", "gpa", "degree"],
+    "answer": "Applicants must typically have completed high school (Grade 12) with strong passes in Mathematics, Physics, and English (minimum 'B' or equivalent), or hold a university degree in STEM fields. International certificates like Cambridge A-Levels or IB are fully accepted."
+  },
+  {
+    "id": "vision_glasses",
+    "title": "Vision & Glasses Rules",
+    "question": "Can I fly if I wear glasses or contact lenses?",
+    "keywords": ["glasses", "contacts", "vision", "eyes", "medical", "sight", "colorblind", "class 1"],
+    "answer": "Yes! As long as your vision is correctable to 20/20 (6/6) with glasses or contacts and you possess normal color vision and depth perception, you can pass the Class 1 Medical examination."
+  },
+  {
+    "id": "age_limit",
+    "title": "Age Limit for Training",
+    "question": "What is the age limit to start pilot training?",
+    "keywords": ["age", "limit", "old", "young", "minimum", "start", "17", "18", "years"],
+    "answer": "Minimum age to hold a Private Pilot License is 17, and 18 for a Commercial Pilot License. For commercial flight training, candidates starting from 18 years can enroll and progress directly through their ratings."
+  },
+  {
+    "id": "screening_exams",
+    "title": "Entrance Screening Exams",
+    "question": "How hard are pilot entrance screening exams?",
+    "keywords": ["exams", "test", "screening", "entrance", "hard", "difficult", "aptitude", "prep"],
+    "answer": "Entrance tests are competitive, filtering applicants down to top scoring cohorts. Tests cover algebra, trigonometry, physics, English comprehension, and psychomotor aptitude. Our Club provides practice study guides."
+  }
+]
