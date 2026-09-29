@@ -6,3 +6,5 @@
 - Pitot-static instruments and modern glass cockpit avionics
 ## Module 3: Aviation Meteorology
 - Atmospheric pressure, frontal systems, and weather briefings
+## Module 4: Air Law & ICAO Regulations
+- Airspace classifications, VFR/IFR rules, and ICAO standards
