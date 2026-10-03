@@ -8,3 +8,5 @@ Comprehensive Pilot Training Knowledge Base & Telegram Support Bot.
 - Direct reply routing in Telegram from admissions team back to students
 ## Message Formatting
 - MarkdownV2 safe formatting engine for clear message delivery
+## Reliability and Error Boundaries
+- Global error handlers and callback query timeout protection
