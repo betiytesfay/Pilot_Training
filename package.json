@@ -2,10 +2,10 @@
   "name": "et-bot",
   "version": "1.0.0",
   "description": "Telegram FAQ Bot with fallback forwarding to admin",
-  "main": "src/bot.js",
+  "main": "index.js",
   "type": "commonjs",
   "scripts": {
-    "start": "node src/bot.js",
+    "start": "node index.js",
     "dev": "node --watch src/bot.js"
   },
   "keywords": [
