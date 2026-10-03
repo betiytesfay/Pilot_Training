@@ -10,3 +10,7 @@ Comprehensive Pilot Training Knowledge Base & Telegram Support Bot.
 - MarkdownV2 safe formatting engine for clear message delivery
 ## Reliability and Error Boundaries
 - Global error handlers and callback query timeout protection
+## Setup & Running Instructions
+1. npm install
+2. configure .env
+3. npm start
