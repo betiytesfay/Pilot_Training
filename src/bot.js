@@ -45,10 +45,10 @@ const forwardedQuestions = new Map();
  * 📞 Contact Support
  */
 function getMainMenuKeyboard() {
-  return Markup.inlineKeyboard([
-    [Markup.button.callback('❓ FAQs', 'open_questions_list')],
-    [Markup.button.callback('📞 Contact Support', 'contact_support')]
-  ]);
+  return Markup.keyboard([
+    ['❓ Most Frequent Questions'],
+    ['✏️ Ask a Custom Question']
+  ]).resize();
 }
 
 /**
@@ -58,11 +58,11 @@ function getMainMenuKeyboard() {
  * - ↩️ Back
  */
 function getQuestionsListKeyboard() {
-  const buttons = faqList.map((item) => [
-    Markup.button.callback(item.title || item.question, `faq_${item.id}`)
+  const buttons = faqList.map((item, index) => [
+    Markup.button.callback(`${index + 1}. ${item.question}`, `faq_${item.id}`)
   ]);
   
-  buttons.push([Markup.button.callback('✏️ Ask a Question', 'ask_custom_question')]);
+  buttons.push([Markup.button.callback(`${faqList.length + 1}. ✏️ Ask a custom question`, 'ask_custom_question')]);
   buttons.push([Markup.button.callback('↩️ Back', 'show_main_menu')]);
 
   return Markup.inlineKeyboard(buttons);
@@ -72,10 +72,9 @@ function getQuestionsListKeyboard() {
 
 // /start command
 bot.start((ctx) => {
-  const name = ctx.from.first_name || 'there';
   userStates.delete(ctx.from.id);
 
-  const welcomeText = `👋 Hi ${name}!\nHow can we help you today?`;
+  const welcomeText = `👋 Hello, this is customer support! Do you have any questions?`;
 
   return ctx.replyWithMarkdownV2(
     escapeMarkdown(welcomeText),
@@ -158,7 +157,7 @@ bot.action('ask_custom_question', async (ctx) => {
   return ctx.replyWithMarkdownV2(
     escapeMarkdown(
       `✏️ *Please type your question below.*\n\n` +
-      `We will forward it directly to our support team (${ADMIN_USERNAME}) and reply to you as soon as possible.`
+      `We will forward it directly to our support team and reply to you as soon as possible.`
     )
   );
 });
@@ -167,8 +166,7 @@ bot.action('ask_custom_question', async (ctx) => {
 bot.action('show_main_menu', async (ctx) => {
   safeAnswerCbQuery(ctx);
   userStates.delete(ctx.from.id);
-  const name = ctx.from.first_name || 'there';
-  const welcomeText = `👋 Hi ${name}!\nHow can we help you today?`;
+  const welcomeText = `👋 Hello, this is customer support! Do you have any questions?`;
 
   return ctx.replyWithMarkdownV2(
     escapeMarkdown(welcomeText),
@@ -180,8 +178,30 @@ bot.action('show_main_menu', async (ctx) => {
 bot.action('contact_support', async (ctx) => {
   safeAnswerCbQuery(ctx);
   return ctx.replyWithMarkdownV2(
-    escapeMarkdown(`📞 You can contact support directly at ${ADMIN_USERNAME} or click *"✏️ Ask a Question"* to send a message here.`),
+    escapeMarkdown(`📞 You can click *"✏️ Ask a Custom Question"* below to send your question directly to our support team.`),
     getMainMenuKeyboard()
+  );
+});
+
+// ==================== REPLY KEYBOARD (BOTTOM BUTTONS) HANDLERS ====================
+
+bot.hears('❓ Most Frequent Questions', async (ctx) => {
+  userStates.delete(ctx.from.id);
+  const text = `📋 *How can we help?*\nChoose a topic below.`;
+  return ctx.replyWithMarkdownV2(
+    escapeMarkdown(text),
+    getQuestionsListKeyboard()
+  );
+});
+
+bot.hears('✏️ Ask a Custom Question', async (ctx) => {
+  const userId = ctx.from.id;
+  userStates.set(userId, 'WAITING_FOR_CUSTOM_QUESTION');
+  return ctx.replyWithMarkdownV2(
+    escapeMarkdown(
+      `✏️ *Please type your question below.*\n\n` +
+      `We will forward it directly to our support team and reply to you as soon as possible.`
+    )
   );
 });
 
@@ -192,6 +212,9 @@ bot.on('text', async (ctx) => {
   const userId = user.id;
   const text = ctx.message.text.trim();
 
+  // Ignore menu buttons text clicks
+  if (text === '❓ Most Frequent Questions' || text === '✏️ Ask a Custom Question') return;
+
   // A. CHECK IF THIS IS AN ADMIN REPLY TO A FORWARDED QUESTION
   if (ctx.message.reply_to_message && ADMIN_CHAT_ID && String(ctx.chat.id) === ADMIN_CHAT_ID) {
     const repliedMsgId = ctx.message.reply_to_message.message_id;
@@ -199,7 +222,7 @@ bot.on('text', async (ctx) => {
 
     if (targetData) {
       try {
-        const replyHeader = `💬 *Response from Support (${ADMIN_USERNAME}):*\n\n`;
+        const replyHeader = `💬 *Response from Support:*\n\n`;
         await bot.telegram.sendMessage(
           targetData.userId,
           replyHeader + text,
@@ -239,7 +262,7 @@ async function forwardQuestionToAdmin(ctx, userQuestion) {
   // Acknowledge user
   const userNotice = 
     `📨 *Question Received!*\n\n` +
-    `Your question has been forwarded to support (${ADMIN_USERNAME}). We will reply to your chat shortly.`;
+    `Your question has been forwarded to our support team. We will reply to your chat shortly.`;
 
   await ctx.replyWithMarkdownV2(
     escapeMarkdown(userNotice),

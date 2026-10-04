@@ -47,12 +47,5 @@
     "question": "What is the age limit to start pilot training?",
     "keywords": ["age", "limit", "old", "young", "minimum", "start", "17", "18", "years"],
     "answer": "Minimum age to hold a Private Pilot License is 17, and 18 for a Commercial Pilot License. For commercial flight training, candidates starting from 18 years can enroll and progress directly through their ratings."
-  },
-  {
-    "id": "screening_exams",
-    "title": "Entrance Screening Exams",
-    "question": "How hard are pilot entrance screening exams?",
-    "keywords": ["exams", "test", "screening", "entrance", "hard", "difficult", "aptitude", "prep"],
-    "answer": "Entrance tests are competitive, filtering applicants down to top scoring cohorts. Tests cover algebra, trigonometry, physics, English comprehension, and psychomotor aptitude. Our Club provides practice study guides."
   }
 ]
