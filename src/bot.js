@@ -73,8 +73,8 @@ function getQuestionsListKeyboard() {
 // /start command
 bot.start((ctx) => {
   userStates.delete(ctx.from.id);
-
-  const welcomeText = `👋 Hello, this is customer support! Do you have any questions?`;
+  const name = ctx.from.first_name || 'there';
+  const welcomeText = `👋 Hello ${name}, this is customer support! Do you have any questions?`;
 
   return ctx.replyWithMarkdownV2(
     escapeMarkdown(welcomeText),
@@ -166,7 +166,8 @@ bot.action('ask_custom_question', async (ctx) => {
 bot.action('show_main_menu', async (ctx) => {
   safeAnswerCbQuery(ctx);
   userStates.delete(ctx.from.id);
-  const welcomeText = `👋 Hello, this is customer support! Do you have any questions?`;
+  const name = ctx.from.first_name || 'there';
+  const welcomeText = `👋 Hello ${name}, this is customer support! Do you have any questions?`;
 
   return ctx.replyWithMarkdownV2(
     escapeMarkdown(welcomeText),
