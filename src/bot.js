@@ -168,7 +168,7 @@ bot.action('show_main_menu', async (ctx) => {
   userStates.delete(ctx.from.id);
   const name = ctx.from.first_name || 'there';
   const welcomeText = `👋 Hello ${name},\n
-   this is customer support! Do you have any questions?`;
+   This is customer support. Do you have any questions?`;
 
   return ctx.replyWithMarkdownV2(
     escapeMarkdown(welcomeText),
