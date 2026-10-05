@@ -62,7 +62,7 @@ function getQuestionsListKeyboard() {
     Markup.button.callback(`${index + 1}. ${item.question}`, `faq_${item.id}`)
   ]);
   
-  buttons.push([Markup.button.callback(`${faqList.length + 1}. ✏️ Ask a custom question`, 'ask_custom_question')]);
+  buttons.push([Markup.button.callback('✏️ Ask a custom question', 'ask_custom_question')]);
   buttons.push([Markup.button.callback('↩️ Back', 'show_main_menu')]);
 
   return Markup.inlineKeyboard(buttons);
@@ -74,7 +74,7 @@ function getQuestionsListKeyboard() {
 bot.start((ctx) => {
   userStates.delete(ctx.from.id);
   const name = ctx.from.first_name || 'there';
-  const welcomeText = `👋 Hello ${name}, this is customer support! Do you have any questions?`;
+  const welcomeText = `✈️ Welcome to Pilot Training Club, ${name}!\n\nHave a question in mind?\nChoose from the options below or tap "Ask a Custom Question" to write to us directly — our team will reply shortly!`;
 
   return ctx.replyWithMarkdownV2(
     escapeMarkdown(welcomeText),
@@ -84,7 +84,7 @@ bot.start((ctx) => {
 
 // /faq command
 bot.command('faq', (ctx) => {
-  const text = `📋 *How can we help?*\nChoose a topic below.`;
+  const text = `Choose a question below:`;
   return ctx.replyWithMarkdownV2(
     escapeMarkdown(text),
     getQuestionsListKeyboard()
@@ -122,7 +122,7 @@ function safeAnswerCbQuery(ctx, text) {
 // 1. User clicks "❓ FAQs"
 bot.action('open_questions_list', async (ctx) => {
   safeAnswerCbQuery(ctx);
-  const text = `📋 *How can we help?*\nChoose a topic below.`;
+  const text = `Choose a question below:`;
   return ctx.replyWithMarkdownV2(
     escapeMarkdown(text),
     getQuestionsListKeyboard()
@@ -167,8 +167,7 @@ bot.action('show_main_menu', async (ctx) => {
   safeAnswerCbQuery(ctx);
   userStates.delete(ctx.from.id);
   const name = ctx.from.first_name || 'there';
-  const welcomeText = `👋 Hello ${name},\n
-   This is customer support. Do you have any questions?`;
+  const welcomeText = `✈️ Welcome to Pilot Training Club, ${name}!\n\nHave a question in mind?\nChoose from the options below or tap "Ask a Custom Question" to write to us directly — our team will reply shortly!`;
 
   return ctx.replyWithMarkdownV2(
     escapeMarkdown(welcomeText),
@@ -189,7 +188,7 @@ bot.action('contact_support', async (ctx) => {
 
 bot.hears('❓ Most Frequent Questions', async (ctx) => {
   userStates.delete(ctx.from.id);
-  const text = `📋 *How can we help?*\nChoose a topic below.`;
+  const text = `Choose a question below:`;
   return ctx.replyWithMarkdownV2(
     escapeMarkdown(text),
     getQuestionsListKeyboard()
