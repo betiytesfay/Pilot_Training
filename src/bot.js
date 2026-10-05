@@ -74,7 +74,7 @@ function getQuestionsListKeyboard() {
 bot.start((ctx) => {
   userStates.delete(ctx.from.id);
   const name = ctx.from.first_name || 'there';
-  const welcomeText = `✈️ Welcome to Pilot Training Club, ${name}!\n\nHave a question in mind?\nChoose from the options below or tap "Ask a Custom Question" to write to us directly — our team will reply shortly!`;
+  const welcomeText = `✈️ Welcome to Pilot Training Club, ${name}!\n\nHave a question in mind?\nChoose from the options below or tap "Ask a Custom Question" to write to us directly, and our team will reply shortly!`;
 
   return ctx.replyWithMarkdownV2(
     escapeMarkdown(welcomeText),
@@ -167,7 +167,7 @@ bot.action('show_main_menu', async (ctx) => {
   safeAnswerCbQuery(ctx);
   userStates.delete(ctx.from.id);
   const name = ctx.from.first_name || 'there';
-  const welcomeText = `✈️ Welcome to Pilot Training Club, ${name}!\n\nHave a question in mind?\nChoose from the options below or tap "Ask a Custom Question" to write to us directly — our team will reply shortly!`;
+  const welcomeText = `✈️ Welcome to Pilot Training Club, ${name}!\n\nHave a question in mind?\nChoose from the options below or tap "Ask a Custom Question" to write to us directly, and our team will reply shortly!`;
 
   return ctx.replyWithMarkdownV2(
     escapeMarkdown(welcomeText),
